@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Movie>
+@{
+    ViewData["Title"] = "Comments";
+}
+<h1>Comments </h1>
+
+<table class="table table-condensed table-hover">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(e => e.UserId)</th>
+            <th>@Html.DisplayNameFor(e => e.Comment)</th>
+            <th>@Html.DisplayNameFor(e => e.CommentDate)</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            @if (item.Comment != null)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Comment)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CommentDate)
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+
+

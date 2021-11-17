@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Movie>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+
+    <h3>Movie List</h3>
+
+    <table class="table table-condensed table-hover">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(e => e.MovieTitle)</th>
+                <th>@Html.DisplayNameFor(e => e.Rating)</th>
+                <th>@Html.DisplayNameFor(e => e.Comment)</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                @if (item.Rating > 9)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MovieTitle)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Rating)
+                        </td>
+                        <td>
+                            <a type="button" asp-action="Comments" asp-route-title="@item.MovieTitle" class="btn btn-success btn-sm">Comments</a>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+
+
+</div>
+
+
